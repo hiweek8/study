@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"github.com/satori/go.uuid"
 	"github.com/nsf/termbox-go"
-	"strings"
 )
 func GetUUID() string {
 	uid := uuid.Must(uuid.NewV4())
@@ -39,7 +38,19 @@ func main() {
 	a:=GetUUID()
 */
 	for i := 0; i < 10; i++ {
-		fmt.Println(strings.ToUpper(GetUUID()))
+		//fmt.Println(strings.ToUpper(GetUUID()))
+		fmt.Println((GetUUID()))
 	}
 	pause()
+	// 创建
+	u1 := uuid.Must(uuid.NewV4())
+	fmt.Printf("UUIDv4: %s\n", u1)
+
+	// 解析
+	u2, err := uuid.FromString("f5394eef-e576-4709-9e4b-a7c231bd34a4")
+	if err != nil {
+		fmt.Printf("Something gone wrong: %s", err)
+		return
+	}
+	fmt.Printf("Successfully parsed: %s", u2)
 }
